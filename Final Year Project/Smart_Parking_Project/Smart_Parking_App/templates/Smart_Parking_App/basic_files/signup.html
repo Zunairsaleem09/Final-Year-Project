@@ -1,0 +1,96 @@
+{% extends "basic_files/base.html" %}
+{% block content %}
+{% load static %}
+<title>{% block title %}PARK ME | SignUp{% endblock %}</title>
+<body style="background-image: url('{% static "images/park.png" %}');" id="login_image">
+
+  <div class="container py-5">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem;">
+          <div class="row g-0">
+            <div class="col-md-6 col-lg-5 d-none d-md-block">
+              <img src="{% static 'images/login.png' %}"
+                alt="Signup form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+            </div>
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
+                {% if messages %}
+                {% for message in messages %}
+                        <div class="text-danger text-center alert alert-{{ message.tags }}"><b>{{ message }}</b></div>
+                {% endfor %}
+              {% endif %}
+                <form method="post" name="f1" onsubmit="return matchpass()"
+                action="{% url 'signup' %}">
+                  {% csrf_token %}
+                  <div class="d-flex align-items-center mb-3 pb-1">
+                    <a href="{% url 'home' %}">
+                        <h2 class="text-white fw-bold m-0"><img src="{% static 'images/Park me.png' %}" alt=""></h2>
+                    </a>
+                  </div>
+
+                  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Create Your Account</h5>
+
+                  <div class="form-outline mb-4" >
+                    <label class="form-label" for="form2Example17">Username</label>
+                    <input type="text" id="username" class="form-control form-control-lg" name="username" required/>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="formemail">Email</label>
+                    <input type="email" id="formemail" class="form-control form-control-lg" name="email" required />
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form2Example27">Password</label>
+                    <input type="password" id="form2Example27" class="form-control form-control-lg" name="password" required/>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="formpass">Confrim Password</label>
+                    <input type="password" id="formpass" class="form-control form-control-lg" name="password2" / required>
+                  </div>
+
+                  <div class="pt-1 mb-4">
+                    <button class="btn btn-danger btn-block" type="submit">Sign Up</button>
+                  </div>
+                  
+                  <p class="mb-5 pb-lg-2" style="color: #393f81;">Already have an account? 
+                    <a href="{% url 'login' %}"
+                      style="color: #393f81;">Login here</a></p>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script type="text/javascript">  
+  function matchpass(){  
+    var firstpassword=document.f1.password.value;  
+    var secondpassword=document.f1.password2.value; 
+    var user=document.f1.username.value
+  
+      
+  if(firstpassword==secondpassword){  
+    return true;  
+    }  
+    else{  
+    alert("password must be same!");  
+    return false;  
+    }
+  if(user.length<5){
+    alert("username must greater than 5")
+    return false;
+  }
+    else{
+      return true
+    }
+  }  
+  </script>  
+   
+{% endblock %}

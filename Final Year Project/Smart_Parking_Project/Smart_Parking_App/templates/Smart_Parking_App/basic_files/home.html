@@ -1,0 +1,24 @@
+{% extends "basic_files/base.html" %}
+{% block content %}
+{% load static %}
+
+<title>{% block title %}PARK ME | Home{% endblock %}</title>
+<body style="background-image: url('{% static "images/park1.png" %}');" id="login_image"></body>
+{% if user.is_authenticated %}
+
+<div class="container center text-center" data-aos="slide-right">
+    <h1><b>Welcome {{request.user}}</b></h1>
+    <p><b>It's great to have you join us.</b></p>
+    <a href="{% url 'search' %}" class="btn btn-danger"> Car Parking</a>
+    <a href="{% url 'post' %}" class="btn btn-danger">Garage</a>
+</div>
+
+{% else %}
+<div class="container center text-dark text-center" data-aos="slide-right">
+    <h1 style="font-size:3rem" class=""><b>Smart Parking System</b></h1>
+    <a href="{% url 'login' %}" class="btn btn-danger">Login</a>
+    <a href="{% url 'signup' %}" class="btn btn-danger">Sign Up</a>
+</div>
+</body>
+{% endif %}
+{% endblock %}

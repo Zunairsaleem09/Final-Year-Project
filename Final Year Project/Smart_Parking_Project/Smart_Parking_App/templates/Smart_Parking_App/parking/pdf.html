@@ -1,0 +1,94 @@
+{% extends "basic_files/base.html" %}
+{% block content %}
+{% load static %}
+<div class="card">
+  <div class="card-body">
+    <div class="container mb-5 mt-3">
+      <div class="row d-flex align-items-baseline">
+        <div class="col-xl-9">
+          <p style="color: #7e8d9f;font-size: 20px;">Parking Ticket</p>
+        </div>
+        <div class="col-xl-3 float-end">
+          <a class="btn btn-light text-capitalize border-0" data-mdb-ripple-color="dark" onclick="window.print()"><i
+              class="fas fa-print text-danger"></i> Print</a>
+
+        </div>
+        <hr>
+      </div>
+
+      <div class="container">
+
+
+        <div class="row">
+          <div class="col-xl-8">
+            <ul class="list-unstyled">
+              <li class="text-muted">Owner Name: <span class="text-danger">{{data.name}}</span></li>
+              <li class="text-muted">City: {{data.plocation}}</li>
+              <li class="text-muted">Area: {{data.area}}</li>
+              <li class="text-muted">Cnic NO: {{data.cnic}}</li>
+              <li class="text-muted">License No: {{data.license}}</li>
+              <li class="text-muted"><i class="fas fa-phone"></i> {{data.ph}}</li>
+            </ul>
+          </div>
+          <div class="col-xl-4">
+            <p class="text-muted">Invoice</p>
+            <ul class="list-unstyled">
+              <li class="text-muted"><i class="fas fa-circle" style="color:#dc3545 ;"></i> <span
+                  class="fw-bold">ID:</span>#123-456</li>
+              <li class="text-muted"><i class="fas fa-circle" style="color:#dc3545 ;"></i> <span
+                  class="fw-bold">Creation Date: </span>July 04,2023</li>
+              <li class="text-muted"><i class="fas fa-circle" style="color:#dc3545 ;"></i> <span
+                  class="me-1 fw-bold">Status:</span><span class="badge bg-warning text-black fw-bold">
+                  Unpaid</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row my-2 mx-1 justify-content-center">
+          <table class="table table-striped table-borderless">
+            <thead class="text-white bg-danger">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Vehicle Brand</th>
+                <th scope="col">Vehicle Name</th>
+                <th scope="col">Vehicle color</th>
+                <th scope="col">Vehicle No</th>
+                <th scope="col">Vehicle Model</th>
+                <th scope="col">Parking Time</th>
+                <th scope="col">Price Per hour</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>{{data.vb}}</td>
+                <td>{{data.vname}}</td>
+                <td>{{data.vc}}</td>
+                <td>{{data.vno}}</td>
+                <td>{{data.vm}}</td>
+                <td>{{data.pt}} hours</td>
+                <td>{{data.c}} $</td>
+              </tr>
+            </tbody>
+
+          </table>
+        </div>
+        <div class="row">
+          <div class="col-xl-3">
+   
+            <p class="text-black float-start"><span class="text-black me-3"> Total Amount</span><span
+                style="font-size: 25px;">{{data.amount}} $</span></p>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-xl-10">
+            <p>Thank you for booking Us</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

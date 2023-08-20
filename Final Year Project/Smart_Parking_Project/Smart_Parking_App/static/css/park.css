@@ -1,0 +1,19 @@
+.font{
+    font-family: 'Times New Roman', Times, serif;
+}
+#login_image{
+    width: 100%;
+    height: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.center{
+    padding: 200px 0;
+  }
+#font-nav{
+    font-size: 22px;
+    font-weight: 2000; 
+    font-family: 'Times New Roman';
+}

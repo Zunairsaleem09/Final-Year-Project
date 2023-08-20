@@ -1,0 +1,40 @@
+{% extends "garage/garage.html" %}
+{% load static %}
+{% block content %}
+<title>{% block title %}POST| Detail-Page {% endblock %}</title>
+<script src="{% static 'js/park.js' %}"></script>
+<link rel="stylesheet" type="text/css" href='{% static "css/detail_page.css" %}'>
+
+<div class="container-fluid">
+<div class = "main-wrapper">
+    <div class = "container-fluid">
+        <div class = "product-div">
+            <div class = "product-div-left">
+                <div class = "img-container">
+                    <img src="{{product.thumbnail.url}}" alt="" class="img-fluid">
+                </div>
+                <div class = "hover-container">
+                    {% for image in images  %}
+                    <div><img src="{{image.images.url}}" alt="" class="img-fluid"></div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class = "product-div-right">
+                <span class = "product-name">Title: {{product.name}}</span>
+                <span class = "product-price">Price: {{product.price}} Rs</span>
+                <span class = "product-price">Location: {{product.location}}</span>
+                <span class = "product-price">Phone No: {{product.phone}}</span>
+                <div class = "product-rating">
+                 
+                </div>
+                <p class = "product-description">Description:  {{product.description}}</p>
+                <!-- <div class = "btn-groups">
+                    <button type = "button" class = "add-cart-btn"><i class = "fas fa-shopping-cart"></i>add to cart</button>
+                    <button type = "button" class = "buy-now-btn"><i class = "fas fa-wallet"></i>buy now</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

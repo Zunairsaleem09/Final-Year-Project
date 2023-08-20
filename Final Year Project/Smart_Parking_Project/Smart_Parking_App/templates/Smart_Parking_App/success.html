@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<title>{% block title %}PARK ME | Success{% endblock %}</title>
+
+<div class="container-fluid mt-5">
+    <div class="card">
+    <div class="card-body">
+        <h3 class="card-title text-center">Hurray your mail is verified </h3>
+        <div class="card-text text-center">
+            Please login
+        </div>
+        <div class="text-center">
+        <a class="btn btn-primary" href="{% url 'login' %}" >Login</a>
+</div>
+    </div>
+</div>
+</div>
+
+
+{% endblock %}

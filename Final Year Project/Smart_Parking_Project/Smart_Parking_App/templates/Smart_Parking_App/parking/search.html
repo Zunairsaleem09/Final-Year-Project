@@ -1,0 +1,72 @@
+{% extends "basic_files/base.html" %}
+{% block content %}
+{% load static %}
+
+<div class="input-group text-dark mt-5 container">
+    <form action="" method="GET">
+      <div class="row">
+        <div class="col-md-4">
+        <label for="">Find Parking Area</label>
+        <input type="search" id="form1" class="form-control" name="booking" />
+        </div>
+
+        <div class="col-md-4">
+        <label for="">Enter Right Location</label>
+        <input type="search" id="form1" class="form-control" name="" />
+        </div>
+
+        <div class="col-md-4">
+          <button type="submit" class="btn btn-danger mt-4">
+            search
+          </button>
+        </div>
+
+     
+      </div>
+    </form>
+    </div>
+    
+ 
+
+    <table class="table align-middle mb-0 bg-white mt-5 container">
+      <thead class="bg-light">
+        <tr>
+          <th>Location</th>
+          <th>Parking Area</th>
+          <th>Total Parking Slots</th>
+          <th>Available Slots</th>
+          <th>Charges Per hour</th>
+          <th>Chose Parking</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in booking  %}
+        <tr>
+          <td>
+            <div class="d-flex align-items-center">
+              <div class="">
+                <p class="fw-bold mb-1">{{i.location}}</p>
+              </div>
+            </div>
+          </td>
+          <td>
+            <p class="fw-normal mb-1">{{i.parking_area}}</p>
+          </td>
+          <td>
+            {{i.total_parking_slots}}
+          </td>
+          <td>{{i.available_parking_slots}}</td>
+          <td>{{i.charges}}</td>
+          <form method="get" action=" {% url 'parkbase' i.id %} ">
+          <td><button type="submit" class="btn btn-danger">Select</button></td>
+          </form>
+        </tr>
+
+        {% endfor %}
+       
+      </tbody>
+    </table>
+
+{% endblock %}
+
+

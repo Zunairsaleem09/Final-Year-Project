@@ -1,0 +1,46 @@
+{% extends "garage/garage.html" %}
+{% block content %}
+{% load static %}
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ti-icons@0.1.2/css/themify-icons.css">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-7 col-lg-4 mb-5 mb-lg-0 wow fadeIn">
+                <div class="card border-0 shadow">
+                    <img src="{{user.profile_edit.profile_img.url}}" alt="...">
+                    <div class="card-body p-1-9 p-xl-5">
+                        <div class="mb-4">
+                            <h3 class="h4 mb-0">{{user.profile_edit.first_name}} {{user.profile_edit.last_name}}</h3>
+                            <span class="text-dark">CEO &amp; Founder</span>
+                        </div>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-3"><a href="#!" class="text-muted"><i class="far fa-envelope display-25 me-3 text-muted"></i>{{user.profile_edit.email}}</a></li>
+                            <li class="mb-3"><a href="#!" class="text-muted"><i class="fas fa-mobile-alt display-25 me-3 text-muted"></i>{{user.profile_edit.mobile}}</a></li>
+                            <li><a href="#!" class="text-muted"><i class="fas fa-map-marker-alt display-25 me-3 text-muted"></i>{{user.profile_edit.address}}</a></li>
+                            <li class="mt-3"><a href="#!" class="text-muted"><i class="fas fa-globe display-25 me-3 text-muted"></i>{{user.profile_edit.country}},{{user.profile_edit.state}}</a></li>
+                            <li class="mt-3"><a href="#!" class="text-muted"><i class="fas fa-mail-bulk display-25 me-3 text-muted"></i>{{user.profile_edit.postcode}}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="ps-lg-1-6 ps-xl-5">
+                    <div class="mb-5 wow fadeIn">
+                        <div class="text-start mb-1-6 wow fadeIn">
+                            <h2 class="h1 mb-0 text-danger">Description</h2>
+                        </div><br>
+                        <p>{{user.profile_edit.desc}}</p>
+                    </div>
+                    <div class="profile-edit-link-container">
+                        <a href="{% url 'profile' %}" class="btn btn-danger">Edit Profile</a>
+                    </div>
+             
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

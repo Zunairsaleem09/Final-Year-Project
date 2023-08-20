@@ -1,0 +1,94 @@
+{% extends "garage/garage.html" %}
+{% load static %}
+{% block content %}
+    <!-- <main class="main-container">
+            <form class='container' action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <div class="profile-photo-container profile-photo-form-container">
+                    <p class="profile-page-heading">Edit your profile</p>
+                    <img src="{{user.profile_edit.profile_img.url}}" alt="User Image" width="100px" srcset="">
+                        {{form.profile_img}}
+                </div>
+            
+
+                <div class="user-content-container user-profile-form-container">
+                    <ul>
+                        <li class="name">
+                            <label for="name">Your Name</label>
+                            {{form.name}}
+                     
+                        </li>
+                        <li class="title">
+                            <label for="title">Your title</label>
+                            {{form.title}}
+                        </li>
+                        <li class="desc">
+                            <label for="desc">Description</label>
+                            {{form.desc}}
+                        </li>
+                    </ul>
+                    <div class="mt-4">
+                        <button type="submit" class="btn btn-danger" id="form-button">Save</button>
+                    </div>
+                </div>
+            </form>
+    </main>
+
+    <script>
+
+    var id_name = document.getElementById('id_name')
+    var id_title = document.getElementById('id_title')
+    var id_desc = document.getElementById('id_desc')
+    id_name.placeholder = 'Your Name'
+    id_title.placeholder = 'Your Title'
+    id_desc.placeholder = 'Description'
+
+    </script> -->
+
+
+
+<div class="container rounded bg-white mt-5 mb-5">
+
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="{{user.profile_edit.profile_img.url}}">
+                <span class="font-weight-bold">{{request.user}}</span><span class="text-black-50"></span><span> </span></div>
+                
+            
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profile Settings</h4>
+                </div>
+                <form class='container' action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                <div class="row mt-2">
+                  
+                    <div class="col-md-6"><label class="labels">Name</label>{{form.first_name}}</div>
+                    <div class="col-md-6"><label class="labels">Surname</label>{{form.last_name}}</div>
+                    <div class="col-md-6"><label class="labels">Mobile Number</label><br>{{form.mobile}}</div>
+                    <div class="col-md-6"><label class="labels">Address</label><br>{{form.address}}</div>
+                    <div class="col-md-6 mt-2"><label class="labels">Postcode</label><br>{{form.postcode}}</div>
+                    <div class="col-md-6 mt-2"><label class="labels">Country</label><br>{{form.country}}</div>
+                    <div class="col-md-6 mt-2"><label class="labels">State</label><br>{{form.state}}</div>
+                    <div class="col-md-6 mt-2"><label class="labels">Area</label><br>{{form.area}}</div>
+                    <div class="col-md-6 mt-2"><label class="labels">Email ID</label><br>{{form.email}}</div>
+                    <div class="col-md-6 mt-2"><label class="labels">Description</label><br>{{form.desc}}</div>
+                    <div class="col-md-6 mt-3"><label class="labels">Chose Profile Image</label><br>{{form.profile_img}}</div>
+                </div>
+                <div class="mt-5 text-center">
+                    <button type="submit" class="btn btn-danger" id="form-button">Save</button>
+                </div>
+            </form>
+            </div>
+       
+        </div>
+    </div>
+</div>
+</div>
+
+</div>
+
+{% endblock %}

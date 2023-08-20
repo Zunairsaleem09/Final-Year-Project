@@ -1,0 +1,113 @@
+{% extends "garage/garage.html" %}
+{% load static %}
+<title>{% block title %}POST Upload| PARK ME {% endblock %}</title>
+{% block content %}
+
+<!-- <div class="col-md-4 pt-5 pb-5" id="form-boder">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+        <div class="container">
+            <h3 class="font text-center"><b>Wanna Post Add?</b></h3>
+        </div>
+
+        
+        <div class="form-group mt-2">
+            <label for="title">Post Title</label>
+            <input type="text" name="title" class="form-control mt-2" placeholder="Post Title" required>
+          </div>
+        
+          <div class="form-group mt-2">
+            <label for="location">Location</label>
+            <input type="text" name="location" class="form-control mt-2" placeholder="Add the Right Location" required>
+          </div>
+
+          <div class="form-group mt-2">
+            <label for="price">Price</label>
+            <input type="text" name="price" class="form-control mt-2" placeholder="" required>
+          </div>
+
+          <div class="form-group mt-2">
+            <label for="description">Description</label>
+            <textarea name="description" cols="30" rows="10"></textarea>
+          </div>
+
+          <div class="form-group mt-2">
+            <label for="name">Upload Images</label>
+            <input type="file" name="images" multiple class="form-control mt-2" required>
+          </div>
+          
+    <div class="text-center mt-4">
+        <button type="submit" class="btn btn-danger" id="form-button">Upload Post</button>
+    </div>
+    <div class="text-center mt-3">
+<a href="" class="text-white">Back to dashboard</a>
+</div>
+      </form>
+</div> -->
+
+<div class="container mt-5">
+<form action="" class="form-control" method='POST' enctype="multipart/form-data">
+  <h4 class="text-center my-3" style="font-size: 2rem;">Create Your Add</h4>
+  {% csrf_token %}
+
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">{{p_form.name.label}}</label>
+    <div class="col-sm-10">
+      {{p_form.name}}
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">{{p_form.thumbnail.label}}</label>
+    <div class="col-sm-10">
+      {{p_form.thumbnail}}
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">{{p_form.description.label}}</label>
+    <div class="col-sm-10">
+      {{p_form.description}}
+    </div>
+  </div>
+
+
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">{{i_form.images.label}}</label>
+    <div class="col-sm-10">
+      {{i_form.images}}
+    </div>
+  </div>
+
+
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">{{p_form.price.label}}</label>
+    <div class="col-sm-10">
+      {{p_form.price}}
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">{{p_form.location.label}}</label>
+    <div class="col-sm-10">
+      {{p_form.location}}
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">{{p_form.phone.label}}</label>
+    <div class="col-sm-10">
+      {{p_form.phone}}
+
+      <button class="btn btn-danger mt-3">Post this Add</button>
+    </div>
+
+  </div>
+
+
+
+</form>
+</div>
+
+
+{% endblock %}
